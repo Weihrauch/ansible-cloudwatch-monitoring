@@ -1,8 +1,9 @@
 Cloudwtach monitoring
 =========
 
-This role make easier installation and configuration of the AWS script intended to monitor  memory and disk usage in cloudwatch console. 
-
+This role is intended to automaticaly install and configure the AWS script into report memory and disk usage in cloudwatch console.
+ 
+Detail ans usage about this script can be found on AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html)
 
 Requirements
 ------------
