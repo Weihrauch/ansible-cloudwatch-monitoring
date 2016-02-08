@@ -3,12 +3,16 @@ Cloudwtach monitoring
 
 This role is intended to automaticaly install and configure the AWS script into report memory and disk usage in cloudwatch console.
  
-Detail ans usage about this script can be found on AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html)
+Script usage and documentation can be found on AWS doc : [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html)
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Servers targeted by this role must be EC2 instance and should have IAM profile which allows them to perform the following operations :
+   * cloudwatch:PutMetricData
+   * cloudwatch:GetMetricStatistics
+   * cloudwatch:ListMetrics
+   * ec2:DescribeTags
 
 Role Variables
 --------------
