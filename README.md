@@ -1,7 +1,8 @@
-Role Name
+Cloudwtach monitoring
 =========
 
-A brief description of the role goes here.
+This role make easier installation and configuration of the AWS script intended to monitor  memory and disk usage in cloudwatch console. 
+
 
 Requirements
 ------------
@@ -11,21 +12,32 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- cw_script_download_url : URL to download AWS cloudwatch scripts
+	* Type : string
+	* Default : http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip
+
+- cw_install_dir : Folder where scripts will be installed
+	* Type : string
+	* Default : /opt/aws-scripts-mon/
+
+- cw_options : Arguments used when calling cloudwatch script
+	* Type : string
+	* Default : --disk-space-util  --disk-path=/ --disk-space-used --disk-space-avail --swap-util --swap-used --mem-util --mem-used --mem-avail
+
+- cw_cron_minute : Frequency (in minutes) of data reporting to cloudwatch. Must be written with crond syntax. You may want to set it to "*" if you are using detailled monitoring for your EC2 instances, to send monitoring data every 5 minutes.
+	* Type : string
+	* Default : "*/5"
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: ansible-cloudwatch-monitoring, cw_cron_minute: "*/5" }
 
 License
 -------
@@ -35,4 +47,5 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+email : pauchet.valentin at gmail.com
+
