@@ -1,0 +1,10 @@
+---
+# vars file for cloudwatch-monitoring
+cw_script_download_url: http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip
+cw_install_dir: /opt/aws-scripts-mon/
+
+cw_options: "--disk-space-util  --disk-path=/ --disk-space-used --disk-space-avail --swap-util --swap-used --mem-util --mem-used --mem-avail"
+
+# Default send monitoring date to cloudwatch every 5 minutes (basic monitoring plan)
+# You may like to change it to "*"" if you are using detailled cloudwatch monitoring, to send stats every minutes
+cw_cron_minute: "*/5"

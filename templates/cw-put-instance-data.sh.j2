@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Configure AWS_EC2CW_META_DATA where AWS script cache instance ID
+# Use /var/run to make cache automaticcaly flush on reboot.
+export AWS_EC2CW_META_DATA=/var/run/aws-mon
+if [ ! -d $AWS_EC2CW_META_DATA ]; then
+    mkdir -p $AWS_EC2CW_META_DATA
+fi
+
+{{cw_install_dir}}/mon-put-instance-data.pl {{cw_options}} --from-cron || logger -t aws-scripts-mon "status=failed exit_code=$?"
