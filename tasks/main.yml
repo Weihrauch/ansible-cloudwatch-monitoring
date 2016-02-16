@@ -18,5 +18,5 @@
   template: src=templates/cw-put-instance-data.sh.j2 dest={{cw_install_dir}}/cw-put-instance-data.sh mode=755
 
 - name: "Install cron command"
-  cron: name="CloudWatchMonitoringScripts" minute="*" state=present job="{{cw_install_dir}}/cw-put-instance-data.sh" cron_file=cw-put-instance-data user=root
+  cron: name="CloudWatchMonitoringScripts" minute={{cw_cron_minute}}  state=present job="{{cw_install_dir}}/cw-put-instance-data.sh" cron_file=cw-put-instance-data user=root
 
