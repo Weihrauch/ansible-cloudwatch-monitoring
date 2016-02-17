@@ -5,7 +5,7 @@ This role is intended to automaticaly install and configure the AWS script to re
  
 Script usage and documentation can be found on AWS doc : [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html)
 
-The script is started through a wrapper which set AWS_EC2CW_META_DATA to /var/run/aws-mon. This variable is used by AWS script to cache fetched instance-id. As /var/run is cleared on startup you won't have an invalid instance-id issue in the case of AMI build.
+The script is started through a wrapper which set AWS_EC2CW_META_DATA to /var/run/aws-mon. This variable is used by AWS script to cache fetched instance-id. As /var/run is cleared on startup you won't have an invalid instance-id if you launch EC2 instances from AMI cooked with this role.
 
 Requirements
 ------------
