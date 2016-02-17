@@ -1,6 +1,6 @@
 galaxy_info:
   author: Valentin Pauchet
-  description: Ansible role to deploy AWS monitoring script to report memory and disk usage to Cloudwatch. It contains fix which avoid error during script execution after  instance reboot occured.
+  description: Ansible role to deploy AWS monitoring script to report memory and disk usage to Cloudwatch. It contains fix which prevent error occured when you use an AMI baked with this role.
   company:
   
   # If the issue tracker for your role is not on github, uncomment the
