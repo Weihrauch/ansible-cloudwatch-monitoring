@@ -1,4 +1,4 @@
-Cloudwtach monitoring
+Cloudwatch monitoring
 =========
 
 This role is intended to automaticaly install and configure the AWS script to report memory and disk usage to cloudwatch console.
