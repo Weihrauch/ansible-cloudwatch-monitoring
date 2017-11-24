@@ -12,6 +12,13 @@
     - perl-LWP-Protocol-https
     - perl-Digest-SHA
 
+- name: "Install Perl dependencies needed for Debian/Ubuntu"
+  apt: name={{item}} state=present
+  when: ansible_os_family == "Debian"
+  with_items:
+    - libwww-perl
+    - libdatetime-perl
+
 - include: install_aws_mon.yml
 
 - name: "Install wrapper arround Perl script"
