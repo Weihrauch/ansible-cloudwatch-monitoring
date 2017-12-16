@@ -19,7 +19,7 @@
     - libwww-perl
     - libdatetime-perl
 
-- include: install_aws_mon.yml
+- import_tasks: install_aws_mon.yml
 
 - name: "Install wrapper arround Perl script"
   template: src=templates/cw-put-instance-data.sh.j2 dest={{cw_install_dir}}/cw-put-instance-data.sh mode=755
