@@ -12,7 +12,14 @@
     - perl-LWP-Protocol-https
     - perl-Digest-SHA
 
-- include: install_aws_mon.yml
+- name: "Install Perl dependencies needed for Debian/Ubuntu"
+  apt: name={{item}} state=present
+  when: ansible_os_family == "Debian"
+  with_items:
+    - libwww-perl
+    - libdatetime-perl
+
+- import_tasks: install_aws_mon.yml
 
 - name: "Install wrapper arround Perl script"
   template: src=templates/cw-put-instance-data.sh.j2 dest={{cw_install_dir}}/cw-put-instance-data.sh mode=755
