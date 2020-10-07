@@ -5,12 +5,12 @@
 
 - name: Install unzip
   package: name=unzip state=present
-  when: get_script|changed
+  when: get_script is changed
 
 - name: Unzip the scripts
   unarchive: src=/tmp/CloudWatchMonitoringScripts.zip dest=/tmp/ copy=no
-  when: get_script|changed
+  when: get_script is changed
 
 - name: Move to install directory
   command: mv /tmp/aws-scripts-mon {{cw_install_dir}}
-  when: get_script|changed
+  when: get_script is changed
